@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_back"
+    tools:context=".MainActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="30dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:id="@+id/email"
+                android:background="#fff"
+                android:layout_marginTop="2px"
+                android:padding="20dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Enter Password"
+                android:background="#fff"
+                android:layout_marginTop="5px"
+                android:padding="20dp"
+                android:id="@+id/password"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:background="#fff"
+                android:layout_marginTop="10px"
+                android:id="@+id/login"
+                android:padding="20dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Login"
+                android:elevation="10dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:id="@+id/signup"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:paddingBottom="200px"
+                android:text="Don't have account? click here to Register"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

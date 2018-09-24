@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".Doctrate">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Add Detail"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Education"
+                android:textColor="#333"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Diploma"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Course"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Specialization"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="University / Institute "
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Passing Out Year"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Grades"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:text="Save"
+                android:background="#fff"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

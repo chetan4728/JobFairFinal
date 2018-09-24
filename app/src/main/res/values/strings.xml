@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">JobFair</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main">Registration</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string-array name="phd_course_name">
+        <item>Select Course Name</item>
+        <item>Doctor of Medicine - M.D.</item>
+        <item>Doctor of Medicine in Homoeopathy - M.D. (Homoeopathy)</item>
+        <item>Doctor of Pharmacy - Pharm.D</item>
+        <item>Doctor of Philosophy - Ph.D</item>
+        <item>Doctorate of Medicine - D.M.</item>
+    </string-array>
+
+    <string-array name="phd_course_type">
+        <item>Select Course Type</item>
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Correspondence / Distance learning</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="pg_course_type">
+        <item>Select Course Type</item>
+        <item>Master of Architecture - M.Arch</item>
+        <item>Master of Arts - M.A.">Master of Arts - M.A.</item>
+        <item>Master of Business Administration - M.B.A.</item>
+        <item>Master of Chirurgiae - M.Ch..</item>
+
+
+        <item>Others</item>
+
+    </string-array>
+</resources>
