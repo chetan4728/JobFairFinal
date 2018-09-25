@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".Fragment.SscFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Add Detail"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Education"
+                android:textColor="#333"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:text="SSC"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Course"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black"
+                android:padding="10dp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/ssc_course_type"
+                />
+
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="School Mediam "
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/mediam"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Course Type"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/course_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/black"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/phd_course_type"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Passing Out Year"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/pssing_out_year"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Total Marks Obtained"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/totalmarks"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Total Marks Out of"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/outoffmarks"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Percentage"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/pernentage"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Grades"
+                android:textColor="#333"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="#333"
+                android:textSize="20sp"
+                android:id="@+id/grades"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Upload Mark Sheet"
+                android:textColor="#fff"
+                android:id="@+id/uploaddoc"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:text="Submit"
+                android:layout_marginTop="30dp"
+                android:id="@+id/submitform"
+                android:background="@drawable/border"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,9 +1,9 @@
-package com.bizthinksoft.app.jobfair;
+package com.bizthinksoft.app.jobfair.Utility;
 
 public class API {
   //  public static String Domain = "http://nclo.info/ofconline/";
     public static String Domain = "http://wordpress.bizthinksoft.com/";
-    public static String ADDVERTISE  = Domain+"Builders/advertise_list_api_all";
+    public static String AddPHD  = Domain+"my_job_fair/services.php/candidate/candidateEducationPhDUpdate";
     public static String CATEGORY  = Domain+"Builders/category_list_api";
     public static String SUBCATEGORY = Domain+"Builders/builder_category_list_api";
     public static String LOGIN  = Domain+"my_job_fair/services.php/candidate/candidateLogin";

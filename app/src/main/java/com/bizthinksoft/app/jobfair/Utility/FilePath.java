@@ -1,4 +1,4 @@
-package com.bizthinksoft.app.jobfair;
+package com.bizthinksoft.app.jobfair.Utility;
 
 import android.content.ContentUris;
 import android.content.Context;

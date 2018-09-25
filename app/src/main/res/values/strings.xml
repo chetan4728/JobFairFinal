@@ -31,10 +31,218 @@
         <item>Master of Architecture - M.Arch</item>
         <item>Master of Arts - M.A.">Master of Arts - M.A.</item>
         <item>Master of Business Administration - M.B.A.</item>
-        <item>Master of Chirurgiae - M.Ch..</item>
-
-
+        <item>Master of Chirurgiae - M.Ch.</item>
+        <item>Master of Commerce - M.Com.</item>
+        <item>Master of Computer Applications - M.C.A.</item>
+        <item>Master of Dental Surgery - M.D.S.</item>
+        <item>Master of Design - M.Des./ M.Design.</item>
+        <item>Master of Education - M.Ed.</item>
+        <item>Master of Engineering / Master of Technology - M.E./ M.Tech.</item>
+        <item>Master of Laws - L.L.M.</item>
+        <item>Master of Library Science - M.Lib./ M.Lib.Sc.</item>
+        <item>Master of Mass Communications / Mass Media - M.M.C / M.M.M.</item>
+        <item>Master of Pharmacy - M.Pharm</item>
+        <item>Master of Philosophy - M.Phil.</item>
+        <item>Master of Physical Education M.P.Ed. / M.P.E.</item>
+        <item>Master of Physiotherapy - M.P.T.</item>
+        <item>Master of Science - M.Sc.</item>
+        <item>Master of Social Work / Master of Arts in Social Work - M.S.W. / M.A. (SW)</item>
+        <item>Master of Science in Agriculture - M.Sc. (Agriculture)</item>
+        <item>Master of Surgery - M.S.</item>
+        <item>Master of Veterinary Science - M.V.Sc.</item>
         <item>Others</item>
 
     </string-array>
+    <string-array name="graduaction_course_type">
+        <item>Bachelor of Architecture - B.Arch</item>
+        <item>Bachelor of Arts - B.A.</item>
+        <item>Bachelor of Ayurvedic Medicine &amp; Surgery - B.A.M.S. </item>
+        <item>Bachelor of Business Administration - B.B.A.</item>
+        <item>Bachelor of Commerce - B.Com.</item>
+        <item>Bachelor of Computer Applications - B.C.A.</item>
+        <item>Bachelor of Dental Surgery - B.D.S.</item>
+        <item>Bachelor of Design - B.Des. / B.D.</item>
+        <item>Bachelor of Education - B.Ed.</item>
+        <item>Bachelor of Fine Arts - BFA / BVA</item>
+        <item>Bachelor of Fisheries Science - B.F.Sc./ B.Sc. (Fisheries).</item>
+        <item>Bachelor of Homoeopathic Medicine and Surgery - B.H.M.S.</item>
+        <item>Bachelor of Laws - L.L.B.</item>
+        <item>Bachelor of Library Science - B.Lib. / B.Lib.Sc.</item>
+        <item>Bachelor of Mass Communications - B.M.C. / B.M.M.</item>
+        <item>Bachelor of Medicine and Bachelor of Surgery - M.B.B.S.</item>
+        <item>Bachelor of Nursing</item>
+        <item>Bachelor of Pharmacy - B.Pharm / B.Pharma.</item>
+        <item>Bachelor of Physical Education - B.P.Ed.</item>
+        <item>Bachelor of Physiotherapy - B.P.T.</item>
+        <item>Bachelor of Science - B.Sc.</item>
+        <item>Bachelor of Social Work - BSW / B.A. (SW)</item>
+        <item>Bachelor of Veterinary Science &amp; Animal Husbandry - B.V.Sc. &amp; A.H. / B.V.Sc</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="diploma_course_type">
+        <item>Diploma In Secretarial Practice</item>
+        <item>Diploma In Modern Office Practice</item>
+        <item>Diploma In Mechatronics</item>
+        <item>Diploma In Mechanical Engineering</item>
+        <item>Diploma In Marine Engineering</item>
+        <item>Diploma in Library Science</item>
+        <item>Diploma In Interior Decoration</item>
+        <item>Diploma in Instrumentation Technology</item>
+        <item>Industrial Diploma</item>
+        <item>Diploma In Handloom Technology</item>
+        <item>Diploma In Fashion Technology</item>
+        <item>Diploma In EC (Electronics and Communication)</item>
+        <item>Diploma in Electrical Engineering</item>
+        <item>Diploma In Electrical and Electronics Engineering</item>
+        <item>Diploma In Civil Engineering</item>
+        <item>Diploma In Chemical Engineering</item>
+        <item>Diploma In Architecture</item>
+        <item>Diploma in Apparel design and Merchandising</item>
+        <item>Diploma In Agriculture</item>
+        <item>Diploma In Computer Science</item>
+        <item>Diploma in Commercial Practice (English)</item>
+        <item>Diploma in Ceramic Technology</item>
+        <item>Diploma in Business Administration</item>
+        <item>Diploma in Biotechnology</item>
+        <item>Diploma in Biomedical</item>
+        <item>Diploma in Biomedical Science</item>
+        <item>Diploma in Architecture Assistantship</item>
+        <item>Diploma In Aeronautical Engineering</item>
+        <item>ITI in Weaving of Woolen Fabrics</item>
+        <item>ITI in Weaving of Silk and Woolen Fabrics</item>
+        <item>ITI In Vessel Navigator Marine Course</item>
+        <item>Turner ITI course</item>
+        <item>ITI in Tool and Die Making</item>
+        <item>ITI in Surveyor</item>
+        <item>ITI Course in Steward</item>
+        <item>ITI in Stenography Hindi</item>
+        <item>ITI in Stenography English</item>
+        <item>ITI in Sheet Metal Worker</item>
+        <item>ITI in Cabin / Room Attendant</item>
+        <item>ITI in Refrigeration and Air Conditioning</item>
+        <item>ITI in Pump Operator cum Mechanic</item>
+        <item>ITI in Preparatory School Management Assistant</item>
+        <item>ITI in Photographer</item>
+        <item>ITI Course in Old Age Care</item>
+        <item>ITI in Network Technician</item>
+        <item>ITI Course in Munshi Para Legal Assistant</item>
+        <item>ITI in Mechanic Tractor</item>
+        <item>ITI in Mechanic Repair and Maintenance of Heavy Vehicles</item>
+        <item>ITI in Mechanic of Refrigeration and Air Conditioning</item>
+        <item>ITI in Mechanic of Radio and TV</item>
+        <item>ITI in Mechanic Motor Vehicle</item>
+        <item>ITI in Mechanic Medical Electronics</item>
+        <item>ITI in Mechanic Machine Tool Maintenance</item>
+        <item>ITI in Mechanic Diesel</item>
+        <item>ITI in Mechanic Consumer Electronics</item>
+        <item>ITI in Mechanic Auto Electrical and Electronics</item>
+        <item>ITI in Mech. Repair and Maintenance of Light Vehicles</item>
+        <item>ITI in Mech Communication Equipment Maintenance</item>
+        <item>ITI Course in Machinist</item>
+        <item>ITI in Machinist Grinder</item>
+        <item>ITI Course in Lift Mechanic</item>
+        <item>ITI in Leather Goods Maker</item>
+        <item>ITI in Laboratory Assistant of Chemical Plant</item>
+        <item>ITI in Instrument Mechanic</item>
+        <item>ITI in Institution House Keeping</item>
+        <item>ITI in Information Technology and Electronics Systems Maintenance</item>
+        <item>ITI in Horticulture</item>
+        <item>ITI in Hair and Skin care</item>
+        <item>ITI in Fruits and Vegetable Processor</item>
+        <item>ITI in Floriculture and Landscaping</item>
+        <item>ITI in Fitter</item>
+        <item>ITI in Firemen</item>
+        <item>ITI in Event Management Assistant</item>
+        <item>ITI in Electroplater</item>
+        <item>ITI in Electrician</item>
+        <item>ITI in Driver Cum Mechanic (Light Motor Vehicle)</item>
+        <item>ITI in Dress Making</item>
+        <item>ITI in Draughtsman (Mechanical)</item>
+        <item>ITI in Draughtsman (Civil)</item>
+        <item>ITI in Domestic House Keeping</item>
+        <item>ITI in Desktop Publishing Operator</item>
+        <item>ITI in Dental Laboratory Equipment Technician</item>
+        <item>ITI in Data Entry Operator</item>
+        <item>ITI in Creche Management</item>
+        <item>ITI in Dairying</item>
+        <item>ITI in Craftsman Food Production General</item>
+        <item>ITI in Craftsman Food Production (Vegetarian)</item>
+        <item>ITI in Corporate House Keeping</item>
+        <item>ITI in Building Maintenance</item>
+        <item>ITI in Baker and Confectioner</item>
+        <item>ITI In Automobile</item>
+        <item>ITI in Attendant Operator (Chemical Plant)</item>
+        <item>ITI in Architectural Assistant  </item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="hsc_course_type">
+        <item>Board of Secondary Education, Andhra Pradesh</item>
+        <item>Directorate of Higher and Technical Education, Arunachal Pradesh</item>
+        <item>Board of Secondary Education, Assam</item>
+        <item>Bihar School Examination Board</item>
+        <item>Goa Board of Secondary and Higher Secondary Education</item>
+        <item>Chhattisgarh Board of Secondary Education</item>
+        <item>Gujarat Secondary and Higher Secondary Education Board</item>
+        <item>Board of School Education, Haryana</item>
+        <item>Himachal Pradesh Board of School Education</item>
+        <item>Jammu and Kashmir State Board of School Education</item>
+        <item>Karnataka Secondary Education Examination Board</item>
+        <item>Kerala Secondary Education Examination Board</item>
+        <item>Board of Secondary Education, Madhya Pradesh</item>
+        <item>Maharashtra State Board of Secondary and Higher Secondary Education</item>
+        <item>Board of Secondary Education, Manipur</item>
+        <item>Meghalaya Board of School Education, Tura</item>
+        <item>Mizoram Board of School Education</item>
+        <item>Nagaland Board of School Education</item>
+        <item>Board of Secondary Education, Odisha</item>
+        <item>Punjab School Education Board</item>
+        <item>Board of Secondary Education, Rajasthan</item>
+        <item>Directorate of Government Examinations, Tamil Nadu</item>
+        <item>Directorate of Government Examinations, Telangana</item>
+        <item>Tripura Board of Secondary Education</item>
+        <item>Uttar Pradesh Madhyamik Shiksha Parishad</item>
+        <item>Uttarakhand Board of School Education</item>
+        <item>West Bengal Board of Secondary Education</item>
+        <item>Others</item>
+
+    </string-array>
+    <string-array name="ssc_course_type">
+        <item>CBSE</item>
+        <item>ICSE</item>
+        <item>Board of Secondary Education, Andhra Pradesh</item>
+        <item>Directorate of Higher and Technical Education, Arunachal Pradesh</item>
+        <item>Board of Secondary Education, Assam</item>
+        <item>Bihar School Examination Board</item>
+        <item>Goa Board of Secondary and Higher Secondary Education</item>
+        <item>Chhattisgarh Board of Secondary Education</item>
+        <item>Gujarat Secondary and Higher Secondary Education Board</item>
+        <item>Board of School Education, Haryana</item>
+        <item>Himachal Pradesh Board of School Education</item>
+        <item>Jammu and Kashmir State Board of School Education</item>
+        <item>Karnataka Secondary Education Examination Board</item>
+        <item>Kerala Secondary Education Examination Board</item>
+        <item>Board of Secondary Education, Madhya Pradesh</item>
+        <item>Maharashtra State Board of Secondary and Higher Secondary Education</item>
+        <item>Board of Secondary Education, Manipur</item>
+        <item>Meghalaya Board of School Education, Tura</item>
+        <item>Mizoram Board of School Education</item>
+        <item>Nagaland Board of School Education</item>
+        <item>Board of Secondary Education, Odisha</item>
+        <item>Punjab School Education Board</item>
+        <item>Board of Secondary Education, Rajasthan</item>
+        <item>Directorate of Government Examinations, Tamil Nadu</item>
+        <item>Directorate of Government Examinations, Telangana</item>
+        <item>Tripura Board of Secondary Education</item>
+        <item>Uttar Pradesh Madhyamik Shiksha Parishad</item>
+        <item>Uttarakhand Board of School Education</item>
+        <item>West Bengal Board of Secondary Education</item>
+        <item>Others</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

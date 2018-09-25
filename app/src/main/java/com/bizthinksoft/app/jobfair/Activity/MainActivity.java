@@ -1,4 +1,4 @@
-package com.bizthinksoft.app.jobfair;
+package com.bizthinksoft.app.jobfair.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.bizthinksoft.app.jobfair.R;
+import com.bizthinksoft.app.jobfair.Utility.API;
+import com.bizthinksoft.app.jobfair.Utility.VolllyRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText firstname,lastname,email,mobile,password,confirm,middle;
     Button register;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

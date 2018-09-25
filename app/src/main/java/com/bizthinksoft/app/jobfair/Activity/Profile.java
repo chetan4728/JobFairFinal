@@ -1,10 +1,9 @@
-package com.bizthinksoft.app.jobfair;
+package com.bizthinksoft.app.jobfair.Activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.icu.util.Calendar;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+
+import com.bizthinksoft.app.jobfair.R;
+import com.bizthinksoft.app.jobfair.Utility.AppSharedPreferences;
 
 public class Profile extends AppCompatActivity {
     AppSharedPreferences appSharedPreferences;
@@ -101,5 +103,7 @@ public class Profile extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+
 
 }
