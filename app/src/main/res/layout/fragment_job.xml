@@ -3,12 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".Fragment.JobFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:textColor="@color/colorPrimary"
+        android:text="Add Experience"
+        android:layout_marginTop="10dp"
+        android:id="@+id/submitform"
+        android:background="@drawable/border"
+        android:layout_height="wrap_content" />
+
+
 
 </FrameLayout>

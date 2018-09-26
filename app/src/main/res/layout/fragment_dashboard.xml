@@ -10,12 +10,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/footer"
+
         android:fillViewport="true">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,6 +63,127 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/black"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Carrier Objective"
+                    android:textSize="20sp"
+                    android:textColor="#333"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#ddd"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="To enhance my educational and professional skills in a stable and dynamic workplace"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/black"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Experience"
+                    android:textSize="20sp"
+                    android:textColor="#333"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#ddd"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="To enhance my educational and professional skills in a stable and dynamic workplace"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/black"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Educational Qualification's"
+                    android:textSize="20sp"
+                    android:textColor="#333"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#ddd"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="To enhance my educational and professional skills in a stable and dynamic workplace"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/black"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Other Detail"
+                    android:textSize="20sp"
+                    android:textColor="#333"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:background="#ddd"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="To enhance my educational and professional skills in a stable and dynamic workplace"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:padding="10dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+            </LinearLayout>
 
 
 
