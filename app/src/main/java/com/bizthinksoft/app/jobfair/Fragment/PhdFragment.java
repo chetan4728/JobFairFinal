@@ -13,15 +13,19 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bizthinksoft.app.jobfair.Activity.Dashboard;
+import com.bizthinksoft.app.jobfair.Utility.AppSharedPreferences;
 import com.bizthinksoft.app.jobfair.Utility.FilePath;
 import com.bizthinksoft.app.jobfair.R;
 import com.bizthinksoft.app.jobfair.Utility.API;
@@ -34,6 +38,8 @@ import net.gotev.uploadservice.UploadStatusDelegate;
 
 import java.util.UUID;
 
+import es.dmoral.toasty.Toasty;
+
 import static android.app.Activity.RESULT_OK;
 
 /**
@@ -42,13 +48,15 @@ import static android.app.Activity.RESULT_OK;
 public class PhdFragment extends Fragment {
 
 
-
+    EditText speciliasation,insitiute,pssing_out_year,totalmarks,outoffmarks,pernentage,grades;
+    Spinner course,course_type;
     private static final int PICK_PDF_REQUEST = 1;
     private static final int STORAGE_PERMISSION_CODE = 123;
     Uri filePath;
+    AppSharedPreferences sharedPreferences;
     TextView uploaddoc;
     ProgressDialog progressBar;
-   Button submitform;
+    Button submitform;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,8 +69,21 @@ public class PhdFragment extends Fragment {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle("Doctorate & PHD Detail");
+        sharedPreferences  =  new AppSharedPreferences(getActivity());
+
         setHasOptionsMenu(true);
         uploaddoc = (TextView)view.findViewById(R.id.uploaddoc);
+
+        speciliasation = view.findViewById(R.id.speciliasation);
+        insitiute = view.findViewById(R.id.insitiute);
+        pssing_out_year = view.findViewById(R.id.pssing_out_year);
+        totalmarks = view.findViewById(R.id.totalmarks);
+        outoffmarks = view.findViewById(R.id.outoffmarks);
+        pernentage = view.findViewById(R.id.pernentage);
+        grades = view.findViewById(R.id.grades);
+        course = view.findViewById(R.id.course);
+        course_type = view.findViewById(R.id.course_type);
+
         progressBar =  new ProgressDialog(getActivity());
         uploaddoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +96,36 @@ public class PhdFragment extends Fragment {
         submitform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadMultipart();
+
+
+                if(speciliasation.getText().toString().isEmpty())
+                {
+
+                    Toasty.error(getActivity(), "Please select specialization", Toast.LENGTH_SHORT, true).show();
+
+                }
+                else  if(insitiute.getText().toString().isEmpty())
+                {
+                    Toasty.error(getActivity(), "Please enter university institute", Toast.LENGTH_SHORT, true).show();
+                }
+                else  if(pssing_out_year.getText().toString().isEmpty())
+                {
+                    Toasty.error(getActivity(), "Please enter passing out year", Toast.LENGTH_SHORT, true).show();
+                }
+                else  if(totalmarks.getText().toString().isEmpty())
+                {
+                    Toasty.error(getActivity(), "Please enter total marks obtained", Toast.LENGTH_SHORT, true).show();
+                }
+                else  if(outoffmarks.getText().toString().isEmpty())
+                {
+                    Toasty.error(getActivity(), "Please enter total marks out of", Toast.LENGTH_SHORT, true).show();
+                }
+
+
+                else {
+
+                    uploadMultipart();
+                }
             }
         });
 
@@ -152,7 +202,15 @@ public class PhdFragment extends Fragment {
                 //Creating a multi part request
                 new MultipartUploadRequest(getActivity(), uploadId, API.AddPHD)
                         .addFileToUpload(path, "phd_upload_document") //Adding file
-                        .addParameter("phd_course_name", "test") //Adding text parameter to the request
+                        .addParameter("phd_course_type", speciliasation.getText().toString())
+                        .addParameter("phd_course_name", speciliasation.getText().toString())
+                        .addParameter("phd_course_type", speciliasation.getText().toString())
+                        .addParameter("phd_university_institute", insitiute.getText().toString())
+                        .addParameter("phd_passing_out_year", pssing_out_year.getText().toString())
+                        .addParameter("phd_total_marks_obtained", totalmarks.getText().toString())
+                        .addParameter("phd_total_marks_out_of", outoffmarks.getText().toString())
+                        .addParameter("phd_grading_system", outoffmarks.getText().toString())
+                        .addParameter("c_id", sharedPreferences.pref.getString("mast_id",""))//Adding text parameter to the request
                         .setNotificationConfig(new UploadNotificationConfig())
                         .setMaxRetries(2)
                         .setDelegate(new UploadStatusDelegate() {
@@ -169,7 +227,7 @@ public class PhdFragment extends Fragment {
                             @Override
                             public void onCompleted(Context context, UploadInfo uploadInfo, ServerResponse serverResponse) {
 
-
+                                Log.d("serverResponse", String.valueOf(serverResponse.getBody()));
                                 if(serverResponse.getHttpCode()==200)
                                 {
                                     Toast.makeText(context, ""+serverResponse.getHttpCode(), Toast.LENGTH_SHORT).show();

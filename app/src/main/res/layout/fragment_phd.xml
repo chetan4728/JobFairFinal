@@ -179,7 +179,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Upload Mark Sheet"
+                android:text="Upload Documents"
                 android:textColor="#fff"
                 android:id="@+id/uploaddoc"
                 android:padding="10dp"
