@@ -3,9 +3,10 @@ package com.bizthinksoft.app.jobfair.Fragment;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,8 +19,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +32,19 @@ import com.bizthinksoft.app.jobfair.Utility.AppSharedPreferences;
 import com.bizthinksoft.app.jobfair.Utility.FilePath;
 import com.bizthinksoft.app.jobfair.R;
 import com.bizthinksoft.app.jobfair.Utility.API;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.Future;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.ProgressCallback;
 
-import net.gotev.uploadservice.MultipartUploadRequest;
-import net.gotev.uploadservice.ServerResponse;
-import net.gotev.uploadservice.UploadInfo;
-import net.gotev.uploadservice.UploadNotificationConfig;
-import net.gotev.uploadservice.UploadStatusDelegate;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.UUID;
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.text.DecimalFormat;
 
 import es.dmoral.toasty.Toasty;
 
@@ -55,8 +63,12 @@ public class PhdFragment extends Fragment {
     Uri filePath;
     AppSharedPreferences sharedPreferences;
     TextView uploaddoc;
+    Future<File> uploading;
+    TextView uploadCount;
+    ProgressBar progressbar;
     ProgressDialog progressBar;
     Button submitform;
+    boolean uploadFlag = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,10 +82,13 @@ public class PhdFragment extends Fragment {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle("Doctorate & PHD Detail");
         sharedPreferences  =  new AppSharedPreferences(getActivity());
-
+        Ion.getDefault(getActivity()).configure().setLogging("ion-sample", Log.DEBUG);
         setHasOptionsMenu(true);
         uploaddoc = (TextView)view.findViewById(R.id.uploaddoc);
+        uploadCount = (TextView)view.findViewById(R.id.upload_count);
+        progressbar = (ProgressBar)view.findViewById(R.id.progress);
 
+        progressbar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#C0D000"), PorterDuff.Mode.MULTIPLY);
         speciliasation = view.findViewById(R.id.speciliasation);
         insitiute = view.findViewById(R.id.insitiute);
         pssing_out_year = view.findViewById(R.id.pssing_out_year);
@@ -85,6 +100,7 @@ public class PhdFragment extends Fragment {
         course_type = view.findViewById(R.id.course_type);
 
         progressBar =  new ProgressDialog(getActivity());
+
         uploaddoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,8 +113,8 @@ public class PhdFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-
-                if(speciliasation.getText().toString().isEmpty())
+                //uploadMultipart();
+               if(speciliasation.getText().toString().isEmpty())
                 {
 
                     Toasty.error(getActivity(), "Please select specialization", Toast.LENGTH_SHORT, true).show();
@@ -128,14 +144,14 @@ public class PhdFragment extends Fragment {
                 }
             }
         });
-
+        GetPhpDetial();
         return  view;
     }
     private void showFileChooser() {
         Intent intent = new Intent();
-        intent.setType("application/pdf");
+        intent.setType("*/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Pdf"), PICK_PDF_REQUEST);
+        startActivityForResult(Intent.createChooser(intent,""), PICK_PDF_REQUEST);
     }
 
     //handling the ima chooser activity result
@@ -145,7 +161,7 @@ public class PhdFragment extends Fragment {
 
         if (requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             filePath = data.getData();
-
+            uploadFlag = true;
         }
     }
 
@@ -182,73 +198,149 @@ public class PhdFragment extends Fragment {
         }
     }
 
-    public void uploadMultipart() {
-        //getting name for the pdf
 
-        String path = FilePath.getPath(getActivity(), filePath);
+    public  void  GetPhpDetial()
+    {
+        progressBar.setTitle("Loading..");
 
+        progressBar.show();
 
-        if (path == null) {
+        Ion.with(getActivity())
+                .load(API.CANDIDATEDETAIL)
+                .setMultipartParameter("c_id", sharedPreferences.pref.getString("mast_id", ""))
+                .asString()
+                .setCallback(new FutureCallback<String>() {
+                    @Override
+                    public void onCompleted(Exception e, String result) {
+                        try {
+                            JSONObject obj = new JSONObject(result);
+                            JSONObject Educational_detail = obj.getJSONObject("data");
+                            selectValue(course,Educational_detail.getJSONObject("phd").getString("ed_course_name"));
+                            selectValue(course_type,Educational_detail.getJSONObject("phd").getString("ed_course_type"));
+                            speciliasation.setText(Educational_detail.getJSONObject("phd").getString("ed_specialization"));
+                            insitiute.setText(Educational_detail.getJSONObject("phd").getString("ed_university"));
+                            pssing_out_year.setText(Educational_detail.getJSONObject("phd").getString("ed_passout_yr"));
+                            totalmarks.setText(Educational_detail.getJSONObject("phd").getString("ed_total_marks_obtained"));
+                            outoffmarks.setText(Educational_detail.getJSONObject("phd").getString("ed_total_marks_out_of"));
+                            pernentage.setText(Educational_detail.getJSONObject("phd").getString("ed_percentage"));
+                            grades.setText(Educational_detail.getJSONObject("phd").getString("ed_grade"));
+                            progressBar.hide();
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
 
-            Toast.makeText(getActivity(), "Please move your .pdf file to internal storage and retry", Toast.LENGTH_LONG).show();
-        } else {
+                    }
+                });
+    }
 
-            //Uploading code
-            try {
-
-                String uploadId = UUID.randomUUID().toString();
-
-
-                //Creating a multi part request
-                new MultipartUploadRequest(getActivity(), uploadId, API.AddPHD)
-                        .addFileToUpload(path, "phd_upload_document") //Adding file
-                        .addParameter("phd_course_type", speciliasation.getText().toString())
-                        .addParameter("phd_course_name", speciliasation.getText().toString())
-                        .addParameter("phd_course_type", speciliasation.getText().toString())
-                        .addParameter("phd_university_institute", insitiute.getText().toString())
-                        .addParameter("phd_passing_out_year", pssing_out_year.getText().toString())
-                        .addParameter("phd_total_marks_obtained", totalmarks.getText().toString())
-                        .addParameter("phd_total_marks_out_of", outoffmarks.getText().toString())
-                        .addParameter("phd_grading_system", outoffmarks.getText().toString())
-                        .addParameter("c_id", sharedPreferences.pref.getString("mast_id",""))//Adding text parameter to the request
-                        .setNotificationConfig(new UploadNotificationConfig())
-                        .setMaxRetries(2)
-                        .setDelegate(new UploadStatusDelegate() {
-                            @Override
-                            public void onProgress(Context context, UploadInfo uploadInfo) {
-
-                            }
-
-                            @Override
-                            public void onError(Context context, UploadInfo uploadInfo, Exception exception) {
-
-                            }
-
-                            @Override
-                            public void onCompleted(Context context, UploadInfo uploadInfo, ServerResponse serverResponse) {
-
-                                Log.d("serverResponse", String.valueOf(serverResponse.getBody()));
-                                if(serverResponse.getHttpCode()==200)
-                                {
-                                    Toast.makeText(context, ""+serverResponse.getHttpCode(), Toast.LENGTH_SHORT).show();
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(Context context, UploadInfo uploadInfo) {
-
-                            }
-                        })
-                        .startUpload(); //Starting the upload
-
-            } catch (Exception exc) {
-                Toast.makeText(getActivity(), exc.getMessage(), Toast.LENGTH_SHORT).show();
+    private void selectValue(Spinner spinner, Object value) {
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).equals(value)) {
+                spinner.setSelection(i);
+                break;
             }
         }
     }
+    public void uploadMultipart(){
 
 
+
+
+        if (uploadFlag == false) {
+
+            if (uploading != null && !uploading.isCancelled()) {
+                resetUpload();
+                return;
+            }
+
+
+            Ion.with(getActivity())
+                    .load(API.AddPHD)
+                    .uploadProgressBar(progressbar)
+                    .uploadProgressHandler(new ProgressCallback() {
+                        @Override
+                        public void onProgress(long downloaded, long total) {
+                            //uploadCount.setText("" + getFileSize(downloaded) + " / " +getFileSize(total) );
+                        }
+                    })
+                    .setMultipartParameter("phd_course_name", course.getSelectedItem().toString())
+                    .setMultipartParameter("phd_course_type", course_type.getSelectedItem().toString())
+                    .setMultipartParameter("phd_specialization", speciliasation.getText().toString())
+                    .setMultipartParameter("phd_passing_out_year", pssing_out_year.getText().toString())
+                    .setMultipartParameter("phd_total_marks_obtained", totalmarks.getText().toString())
+                    .setMultipartParameter("phd_total_marks_out_of", outoffmarks.getText().toString())
+                    .setMultipartParameter("phd_university_institute", insitiute.getText().toString())
+                    .setMultipartParameter("phd_grading_system", grades.getText().toString())
+                    .setMultipartParameter("phd_grading_system", grades.getText().toString())
+                    .setMultipartParameter("c_id", sharedPreferences.pref.getString("mast_id", ""))
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                        @Override
+                        public void onCompleted(Exception e, String result) {
+                            Toast.makeText(getActivity(), "Data Updated successfully", Toast.LENGTH_SHORT).show();
+
+                            GetPhpDetial();
+
+                        }
+
+
+
+                    });
+
+        } else {
+           String path = FilePath.getPath(getActivity(), filePath);
+            String content_type = getMimeType(new File(path));
+            if (uploading != null && !uploading.isCancelled()) {
+                resetUpload();
+                return;
+            }
+            Ion.with(getActivity())
+                    .load(API.AddPHD)
+                    .uploadProgressBar(progressbar)
+                    .uploadProgressHandler(new ProgressCallback() {
+                        @Override
+                        public void onProgress(long downloaded, long total) {
+                            uploadCount.setText("" + getFileSize(downloaded) + " / " +getFileSize(total) );
+                        }
+                    })
+                    .setMultipartParameter("phd_course_name", course.getSelectedItem().toString())
+                    .setMultipartParameter("phd_course_type", course_type.getSelectedItem().toString())
+                    .setMultipartParameter("phd_specialization", speciliasation.getText().toString())
+                    .setMultipartParameter("phd_passing_out_year", pssing_out_year.getText().toString())
+                    .setMultipartParameter("phd_total_marks_obtained", totalmarks.getText().toString())
+                    .setMultipartParameter("phd_total_marks_out_of", outoffmarks.getText().toString())
+                    .setMultipartParameter("phd_university_institute", insitiute.getText().toString())
+                    .setMultipartParameter("phd_grading_system", grades.getText().toString())
+                    .setMultipartParameter("phd_grading_system", grades.getText().toString())
+                    .setMultipartParameter("c_id", sharedPreferences.pref.getString("mast_id", ""))
+                    .setMultipartFile("phd_upload_document", content_type,new File(path))
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                        @Override
+                        public void onCompleted(Exception e, String result) {
+                            Toast.makeText(getActivity(), "Data Updated successfully", Toast.LENGTH_SHORT).show();
+                            GetPhpDetial();
+
+
+                        }
+
+
+
+                    });
+
+        }
+
+    }
+
+    public static String getFileSize(long size) {
+        if (size <= 0)
+            return "0";
+
+        final String[] units = new String[] { "B", "KB", "MB", "GB", "TB" };
+        int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
+
+        return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == android.R.id.home) {
@@ -259,6 +351,24 @@ public class PhdFragment extends Fragment {
         };
         return super.onOptionsItemSelected(item);
     }
-
-
+    public String getMimeType(File file) {
+        String type = null;
+        final String url = file.toString();
+        final String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+        if (extension != null) {
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+        }
+        if (type == null) {
+            type = "image/*"; // fallback type. You might set it to */*
+        }
+        return type;
+    }
+    void resetUpload() {
+        // cancel any pending upload
+        uploading.cancel();
+        uploading = null;
+        // reset the ui
+        uploadCount.setText(null);
+        progressBar.setProgress(0);
+    }
 }

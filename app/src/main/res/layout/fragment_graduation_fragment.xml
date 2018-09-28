@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".Fragment.Graduation_fragment">
+    android:orientation="vertical"
 
+    tools:context=".Fragment.Graduation_fragment">
+    <ProgressBar
+        android:minHeight="20dp"
+        android:maxHeight="20dp"
+        android:id="@+id/progress"
+        android:indeterminateTint="#66BB6A"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
     <ScrollView
         android:layout_width="match_parent"
         android:scrollbars="none"
+        android:layout_margin="10dp"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
@@ -205,4 +215,4 @@
 
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+</LinearLayout>

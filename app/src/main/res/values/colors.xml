@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#ff106a</color>
     <color name="colorAccent">#ff106a</color>
     <color name="splashBackground">#ff106a</color>
-
+    <color name="green">#66BB6A</color>
     <color name="black_overlay">#ff106a</color>
 </resources>

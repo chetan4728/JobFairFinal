@@ -32,6 +32,7 @@
             android:label="Login" />
         <activity
             android:name=".Activity.Dashboard"
+            android:windowSoftInputMode="adjustPan"
             android:label="Welcome to My Job Fair 2018-19" />
         <activity
             android:label="My Profile"

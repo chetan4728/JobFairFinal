@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -16,6 +17,8 @@ import com.bizthinksoft.app.jobfair.Fragment.HomeFragment;
 import com.bizthinksoft.app.jobfair.Fragment.JobFragment;
 import com.bizthinksoft.app.jobfair.R;
 import com.bizthinksoft.app.jobfair.Utility.AppSharedPreferences;
+
+import es.dmoral.toasty.Toasty;
 
 public class Dashboard extends AppCompatActivity {
 AHBottomNavigation bottomNavigation;
@@ -141,4 +144,9 @@ FrameLayout frame_container;
 
 
 }
+
+  public  void messagefunction(String msg)
+  {
+      Toasty.success(getApplicationContext(),msg, Toast.LENGTH_SHORT,true);
+  }
 }

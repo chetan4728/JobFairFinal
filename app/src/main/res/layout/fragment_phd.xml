@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:orientation="vertical"
     tools:context=".Fragment.PhdFragment">
-
+    <ProgressBar
+        android:minHeight="20dp"
+        android:maxHeight="20dp"
+        android:id="@+id/progress"
+        android:indeterminateTint="#66BB6A"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
     <ScrollView
         android:layout_width="match_parent"
         android:scrollbars="none"
+        android:layout_margin="10dp"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
+
             <TextView
                 android:layout_width="match_parent"
                 android:text="Add Detail"
@@ -51,6 +61,7 @@
                 android:id="@+id/course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/black"
                 android:padding="10dp"
                 android:drawSelectorOnTop="true"
@@ -99,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/black"
                 android:drawSelectorOnTop="true"
                 android:entries="@array/phd_course_type"
@@ -188,6 +200,28 @@
                 android:layout_marginTop="30dp"
                 android:textSize="16sp"
                 android:layout_height="wrap_content" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/upload_count"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:gravity="center_vertical"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        />
+
+
+</LinearLayout>
+
+
+
+
 
             <Button
                 android:layout_width="match_parent"
@@ -206,4 +240,4 @@
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>

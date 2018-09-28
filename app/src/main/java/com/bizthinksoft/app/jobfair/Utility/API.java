@@ -4,7 +4,7 @@ public class API {
   //  public static String Domain = "http://nclo.info/ofconline/";
     public static String Domain = "http://wordpress.bizthinksoft.com/";
     public static String AddPHD  = Domain+"my_job_fair/services.php/candidate/candidateEducationPhDUpdate";
-    public static String CATEGORY  = Domain+"Builders/category_list_api";
+    public static String CANDIDATEDETAIL  = Domain+"my_job_fair/services.php/candidate/candidateEducationDetails";
     public static String SUBCATEGORY = Domain+"Builders/builder_category_list_api";
     public static String LOGIN  = Domain+"my_job_fair/services.php/candidate/candidateLogin";
     public static  String IMG_PATH = Domain+"upload/builder_category/";
