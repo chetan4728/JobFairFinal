@@ -74,7 +74,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="School Mediam "
+                android:text="School Medium"
                 android:textColor="#333"
                 android:layout_marginTop="30dp"
                 android:textSize="16sp"
@@ -83,26 +83,8 @@
                 android:layout_width="match_parent"
                 android:textColor="#333"
                 android:textSize="20sp"
-                android:id="@+id/mediam"
+                android:id="@+id/insitiute"
                 android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Course Type"
-                android:textColor="#333"
-                android:layout_marginTop="30dp"
-                android:textSize="16sp"
-                android:layout_height="wrap_content" />
-            <Spinner
-                android:id="@+id/course_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/black"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/phd_course_type"
-                />
-
 
             <TextView
                 android:layout_width="match_parent"
